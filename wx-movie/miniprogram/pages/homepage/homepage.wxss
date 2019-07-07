@@ -1,0 +1,30 @@
+.cover{
+  padding-top: 30rpx;
+  padding-left: 90rpx;
+  width: 570rpx;
+}
+.name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10rpx;
+  font-size: 50rpx;
+  line-height: 56rpx;
+  font-weight: bolder
+}
+.menu{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  border-top: solid #000000 3rpx;
+}
+.hot,
+.me{
+  flex: 1;
+  height: 120rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 50rpx;
+}

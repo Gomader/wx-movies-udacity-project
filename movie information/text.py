@@ -12,8 +12,8 @@ import pandas as pd
 
 
 header = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'}
-response = requests.get('https://movie.douban.com/subject/1291561/',headers = header)
+response = requests.get('https://movie.douban.com/subject/6850547/',headers = header)
 html = response.text
 moviepage = bs4.BeautifulSoup(html, "lxml")
-category = str(moviepage.find_all('span',{"property":"v:summary"})).replace('[<span class="" property="v:summary">','').replace('<br/>','').replace('</span>]','').replace(' ','')
-print(category)
+cover = moviepage.find("img",{"title":"点击看更多海报"})
+print(cover)

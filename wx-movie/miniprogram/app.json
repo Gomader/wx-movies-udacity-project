@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi"
+    "pages/homepage/homepage",
+    "pages/hotmovie/hotmovie",
+    "pages/movieinfo/movieinfo",
+    "pages/commentlist/commentlist",
+    "pages/comment/comment",
+    "pages/editor/editor",
+    "pages/editorcheck/editorcheck",
+    "pages/mine/mine"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#f8f9fb",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 QuickStart",

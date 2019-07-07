@@ -73,7 +73,7 @@ def getMovies(url):
 			print('第'+str(i)+'爬取失败')
 			continue
 	print('现在正在合并列表')
-	List = list(zip(movie_name,movie_info,movie_location,movie_category,movie_info_link,movie_info_link,movie_rate))  
+	List = list(zip(movie_name,movie_info,movie_location,movie_category,movie_info_link,movie_cover_link,movie_rate))  
 	print('列表合并完毕')
 	return List
 
