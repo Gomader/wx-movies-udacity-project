@@ -2,6 +2,7 @@
   padding-top: 30rpx;
   padding-left: 90rpx;
   width: 570rpx;
+  height: 805rpx;
 }
 .name{
   display: flex;
@@ -10,7 +11,8 @@
   padding-top: 10rpx;
   font-size: 50rpx;
   line-height: 56rpx;
-  font-weight: bolder
+  font-weight: bolder;
+  color: #bdc7af
 }
 .menu{
   position: fixed;
@@ -18,7 +20,7 @@
   left: 0;
   right: 0;
   display: flex;
-  border-top: solid #000000 3rpx;
+  border-top: solid #bdc7af 3rpx;
 }
 .hot,
 .me{
@@ -26,5 +28,10 @@
   height: 120rpx;
   line-height: 100rpx;
   text-align: center;
-  font-size: 50rpx;
+  font-size: 30rpx;
+  color: #bdc7af;
+}
+.icon{
+  width: 50rpx;
+  height: 50rpx;
 }

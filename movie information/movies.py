@@ -67,11 +67,15 @@ def getMovies(url):
 			movie_info.append(info)
 			i += 1
 			print(info_link.get('href')+'爬取成功 第'+ str(i) +"个")
-			time.sleep(10)
+			time.sleep(5)
 		except:
 			i += 1
+			movie_info_link.append('null')
+			movie_cover_link.append('null')
+			movie_location.append('null')
+			movie_category.append('null')
+			movie_info.append('null')
 			print('第'+str(i)+'爬取失败')
-			continue
 	print('现在正在合并列表')
 	List = list(zip(movie_name,movie_info,movie_location,movie_category,movie_info_link,movie_cover_link,movie_rate))  
 	print('列表合并完毕')

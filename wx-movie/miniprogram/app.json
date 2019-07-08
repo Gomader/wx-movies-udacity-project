@@ -10,7 +10,7 @@
     "pages/mine/mine"
   ],
   "window": {
-    "backgroundColor": "#f8f9fb",
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 QuickStart",

@@ -2,6 +2,10 @@
 </image>
 <text class='name'>玩具总动员4</text>
 <view class='menu'>
-  <view class='hot'>热门</view>
-  <view class='me'>我的</view>
+  <view class='hot'>
+    <image src='/images/hot-icon.png' class='icon'></image>
+  热门</view>
+  <view class='me'>
+  <image src='/images/mine-icon.png' class='icon'></image>
+  我的</view>
 </view>
