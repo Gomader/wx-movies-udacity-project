@@ -33,9 +33,9 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "db guide",
-					"pathName": "pages/hotmovie/hotmovie",
+					"pathName": "pages/movieinfo/movieinfo",
 					"query": "",
 					"scene": null
 				}

@@ -1,1 +1,38 @@
-/* miniprogram/pages/movieinfo/movieinfo.wxss */
+.pc{
+  width: 216rpx;
+  padding-left: 267rpx;
+  padding-right: 267rpx;
+  padding-top: 30rpx
+}
+.bg{
+  width: 700rpx;
+  height: 1700rpx;
+  background-color: #ffffff;
+  left: 25rpx;
+  position: fixed;
+  top: 70rpx;
+  padding-bottom: 70rpx;
+  z-index: -1;
+}
+.name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: bolder;
+  color: #000000
+}
+.info{
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 42rpx;
+  height: 500rpx;
+  padding-left: 100rpx;
+  padding-right: 100rpx;
+  padding-top: 100rpx;
+  margin-bottom: 50rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}

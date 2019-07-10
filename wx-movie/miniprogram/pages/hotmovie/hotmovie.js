@@ -45,5 +45,10 @@ Page({
       })
     })
   },
-  
+  tomovieinfo(a){
+    var id = a.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/movieinfo/movieinfo?id=' + id
+    })
+  }
 })

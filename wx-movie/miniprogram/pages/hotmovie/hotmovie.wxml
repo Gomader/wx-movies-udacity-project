@@ -1,5 +1,5 @@
 <view class='movielist' wx:for='{{movies}}'>
-  <view class='movies' data-id='{{item._id}}'>
+  <view class='movies' data-id='{{item._id}}' bindtap='tomovieinfo'>
     <image src='{{item.clink}}' class='pc' mode='widthFix'></image>
     <view class='name'>{{item.name}}</view>
     <view class='info'>{{item.loc}}  {{item.point}}</view>
