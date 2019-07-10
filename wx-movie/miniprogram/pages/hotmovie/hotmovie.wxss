@@ -1,1 +1,35 @@
-/* miniprogram/pages/hotmovie/hotmovie.wxss */
+.movielist{
+  display: flex
+}
+.movies{
+  width: 700rpx;
+  height: 300rpx;
+  background-color: rgb(255, 255, 255);
+  margin-top: 30rpx;
+  margin-left: 25rpx;
+  display: flex;
+}
+.movielist:last-child{
+  margin-bottom: 30rpx;
+}
+.pc{
+  width: 216rpx
+}
+.name{
+  padding-left: 266rpx;
+  padding-top: 30rpx;
+  font-weight: bolder;
+  position: absolute;
+  font-size: 40rpx
+}
+.cate,
+.info{
+  padding-left: 266rpx;
+  padding-top: 140rpx;
+  position: absolute;
+  font-size: 25rpx;
+  font-weight: bold
+}
+.cate{
+  padding-top: 200rpx
+}

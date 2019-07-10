@@ -1,5 +1,5 @@
 .cover{
-  padding-top: 30rpx;
+  padding-top: 50rpx;
   padding-left: 90rpx;
   width: 570rpx;
   height: 805rpx;
@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 10rpx;
+  padding-top: 15rpx;
   font-size: 50rpx;
   line-height: 56rpx;
   font-weight: bolder;
@@ -34,4 +34,19 @@
 .icon{
   width: 50rpx;
   height: 50rpx;
+}
+.reco{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70rpx
+}
+.usericon{
+  width: 80rpx;
+  height: 80rpx
+}
+.recotext{
+  padding-top: 10rpx;
+  color: #bdc7af;
+  font-size: 30rpx
 }
