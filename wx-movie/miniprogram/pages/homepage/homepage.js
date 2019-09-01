@@ -1,7 +1,4 @@
-
-const db = wx.cloud.database({
-  env: 'movies-udacity-f36f2'
-})
+const db = wx.cloud.database()
 
 Page({
   data: {
@@ -18,19 +15,21 @@ Page({
   },
   getmovies(){
     var a = Math.floor(Math.random()*10).toString()
-    wx.showLoading({
-      title: '数据正在加载中...',
-    })
-    db.collection('movies').where({
-      rand:a
-    }).get().then(result => {
-      wx.hideLoading()
-      var datas = result.data[0]
-      this.setData({
-        clink: datas.clink,
-        name: datas.name,
-        movieid:datas._id
-      })
+    wx.cloud.callFunction({
+      name: 'get',
+      data:{
+        where:'rand',
+        v:a
+      },
+      success: function (res) {
+        console.log(res.result)
+        this.setData({
+          clink: res.clink,
+          name: res.name,
+          movieid: res._id
+        })
+      },
+      fail: console.error
     })
   },
   getnew(){
