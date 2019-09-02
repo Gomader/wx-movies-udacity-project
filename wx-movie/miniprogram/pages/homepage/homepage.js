@@ -15,6 +15,9 @@ Page({
   },
   getmovies(){
     var a = Math.floor(Math.random()*10).toString()
+    wx.showLoading({
+      title: '数据正在加载中...',
+    })
     wx.cloud.callFunction({
       name: 'get',
       data:{
@@ -22,6 +25,7 @@ Page({
         v:a
       },
       success: function (res) {
+        wx.hideLoading()
         console.log(res.result)
         this.setData({
           clink: res.clink,
