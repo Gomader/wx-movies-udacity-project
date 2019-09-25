@@ -7,6 +7,7 @@ App({
     } else {
       wx.cloud.init({
         traceUser: true,
+        env: 'movies-udacity-f36f2'
       })
     }
 

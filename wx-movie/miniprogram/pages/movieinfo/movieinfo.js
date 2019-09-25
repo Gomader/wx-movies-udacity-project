@@ -5,11 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    clink: '',
+    info: '',
+    name:''
   },
 
   onLoad: function (options) {
-
+    console.log(options)
+    this.getMovieinfo(options)
   },
 
   /**
@@ -59,5 +62,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getMovieinfo:function(options){
+    var that = this
+    wx.showLoading({
+      title: '数据正在加载中...',
+    })
+    wx.cloud.callFunction({
+      name: 'get',
+      data: {
+        x: '_id',
+        y: options.id
+      },
+      success: function (res) {
+        wx.hideLoading()
+        console.log(res)
+        var res = res.result.data[0]
+        that.setData({
+          clink: res.clink,
+          name: res.name,
+          info: res.info
+        })
+      },
+      fail: console.error
+    })
   }
 })

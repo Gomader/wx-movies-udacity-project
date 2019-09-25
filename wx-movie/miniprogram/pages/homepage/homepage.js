@@ -15,17 +15,20 @@ Page({
   },
   getmovies(){
     var a = Math.floor(Math.random()*10).toString()
+    var that = this
     wx.showLoading({
       title: '数据正在加载中...',
     })
     wx.cloud.callFunction({
       name: 'get',
       data:{
+        x: 'rand',
+        y: a
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res.result)
-        this.setData({
+        var res = res.result.data[0]
+        that.setData({
           clink: res.clink,
           name: res.name,
           movieid: res._id
@@ -49,6 +52,7 @@ Page({
   },
   tomovieinfo(a){
     var id = a.currentTarget.dataset.id
+    console.log(id)
     wx.navigateTo({
       url: '/pages/movieinfo/movieinfo?id=' + id
     })

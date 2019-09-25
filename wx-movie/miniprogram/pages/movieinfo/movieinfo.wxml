@@ -1,9 +1,7 @@
-<image src='https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2557284230.jpg' class = 'pc' mode='widthFix'></image>
+<image src='{{clink}}' class = 'pc' mode='widthFix'></image>
 <view class='bg'></view>
-<view class='name'>玩具总动员4</view>
+<view class='name'>{{name}}</view>
 <view class='info'>
-  <text>　　《玩具总动员4》讲述：胡迪总是对自己身处这个世界的使命感到自信满满，他的首要任务永远都是要先照顾好自己的“孩子”——不管是老主人安迪还是新主人邦妮，但是当邦妮把她自制的、不情愿当玩具的Forky放进来后，胡迪将和他的新老朋友一起踏上一场公路冒险之旅，也让他明白作为一个玩具他所面对的“世界”会有多大。
-  
-　　胡迪、巴斯光年、翠丝、蛋头先生、蛋头太太、弹簧狗、猪排博士、抱抱龙太空外星人等集体回归，第四部还有新玩具——Forky首度登场！Forky由TonyHale配音，是邦妮用一次性叉勺改造的手工“玩具”。玩具存在的目的是为了给孩子带来欢乐，但是手工改造的玩具呢？Forky坚信自己不是玩具，就是个叉勺，所以要努力逃离玩具的世界！</text>
+  <text>{{info}}</text>
 </view>
 <view></view>
