@@ -21,8 +21,6 @@ Page({
     wx.cloud.callFunction({
       name: 'get',
       data:{
-        where:'rand',
-        v:a
       },
       success: function (res) {
         wx.hideLoading()
