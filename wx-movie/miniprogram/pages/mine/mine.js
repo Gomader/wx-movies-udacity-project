@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo:null,
   },
 
   /**
@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  onTapLogin(event) {
+
+    this.setData({
+      userInfo: event.detail.userInfo
+    })
+    console.log(event.detail.userInfo)
+  },
 })

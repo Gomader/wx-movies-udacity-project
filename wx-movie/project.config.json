@@ -30,14 +30,18 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "db guide",
-					"pathName": "pages/movieinfo/movieinfo",
-					"query": "",
+					"name": "pages/mine/mine",
+					"pathName": "pages/mine/mine",
+					"query": "_id = 5d248a2a7a10db99e1b99403",
 					"scene": null
 				}
 			]

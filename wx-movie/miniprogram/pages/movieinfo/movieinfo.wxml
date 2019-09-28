@@ -4,4 +4,11 @@
 <view class='info'>
   <text>{{info}}</text>
 </view>
-<view></view>
+<view class='menu'>
+  <view class='comment' bindtap='tocomment'>
+    <image src='/images/hot-icon.png' class='icon'></image>
+  查看影评</view>
+  <view class='commentlist' bindtap='tocommentlist'>
+  <image src='/images/mine-icon.png' class='icon'></image>
+  添加影评</view>
+</view>

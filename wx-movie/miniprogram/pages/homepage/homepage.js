@@ -52,7 +52,6 @@ Page({
   },
   tomovieinfo(a){
     var id = a.currentTarget.dataset.id
-    console.log(id)
     wx.navigateTo({
       url: '/pages/movieinfo/movieinfo?id=' + id
     })

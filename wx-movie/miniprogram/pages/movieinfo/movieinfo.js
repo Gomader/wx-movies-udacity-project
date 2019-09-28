@@ -11,7 +11,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log(options)
     this.getMovieinfo(options)
   },
 
@@ -76,7 +75,6 @@ Page({
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         var res = res.result.data[0]
         that.setData({
           clink: res.clink,
