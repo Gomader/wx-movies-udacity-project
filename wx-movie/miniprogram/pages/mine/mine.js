@@ -6,6 +6,9 @@ Page({
    */
   data: {
     userInfo:null,
+    tomycomment:false,
+    btn:"点击查看我的影评",
+    id:null
   },
 
   /**
@@ -64,10 +67,28 @@ Page({
 
   },
   onTapLogin(event) {
-
     this.setData({
       userInfo: event.detail.userInfo
     })
-    console.log(event.detail.userInfo)
+    wx.cloud.callFunction({
+      name: 'getopenid',
+      complete: res => {
+        var id = res.result.openid
+        id:id
+      }
+    })
   },
+  changeinner(){
+    if(this.data.tomycomment==false){
+      this.setData({
+        tomycomment:true,
+        btn:"点击查看我的收藏"
+      })
+    }else{
+      this.setData({
+        tomycomment: false,
+        btn: "点击查看我的影评"
+      })
+    }
+  }
 })

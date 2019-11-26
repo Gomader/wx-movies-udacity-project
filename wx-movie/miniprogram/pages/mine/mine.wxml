@@ -1,5 +1,14 @@
 <!--miniprogram/pages/mine/mine.wxml-->
 
-<view style="background-color:#ffffff;width:100%;height:500px;margin-top:20rpx">
-  <button style="background-color: #34373D;width:50%;height:90rpx;"open-type="getUserInfo" bindgetuserinfo="onTapLogin"></button>
+<view class="wapper" wx:if="{{!userInfo}}">
+  <view class="user-head">
+    <image src="/images/test.jpg" class="head-pc"></image>
+  </view>
+  <button class="btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">使用微信登陆</button>
+</view>
+
+<view wx:else>
+  <view class="wapper">
+    <view class="topbtn" bindtap="changeinner">---{{btn}}---</view>
+  </view>
 </view>
