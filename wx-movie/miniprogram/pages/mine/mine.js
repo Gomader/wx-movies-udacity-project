@@ -1,4 +1,5 @@
 // miniprogram/pages/mine/mine.js
+const util = require('../../utils/userinfo.js')
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getopenid()
   },
 
   /**
@@ -29,7 +30,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    util.getUserInfo().then(userInfo => {
+      this.setData({
+        userInfo
+      })
+    })
   },
 
   /**
@@ -70,13 +75,7 @@ Page({
     this.setData({
       userInfo: event.detail.userInfo
     })
-    wx.cloud.callFunction({
-      name: 'getopenid',
-      complete: res => {
-        var id = res.result.openid
-        id:id
-      }
-    })
+    
   },
   changeinner(){
     if(this.data.tomycomment==false){
@@ -90,5 +89,16 @@ Page({
         btn: "点击查看我的影评"
       })
     }
+  },
+  getopenid(){
+    wx.cloud.callFunction({
+      name: 'getopenid',
+      complete: res => {
+        var id = res.result.openid
+        this.setData({
+          id: id
+        })
+      }
+    })
   }
 })
