@@ -16,7 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getopenid()
   },
 
   /**
@@ -72,10 +71,19 @@ Page({
 
   },
   onTapLogin(event) {
-    this.setData({
-      userInfo: event.detail.userInfo
+    var that = this
+    wx.cloud.callFunction({
+      name:'user',
+      data:{
+        userInfo:event.detail.userInfo
+      },
+      success: function (res){
+        console.log(res)
+        that.setData({
+          userInfo:res.result
+        })
+      }
     })
-    
   },
   changeinner(){
     if(this.data.tomycomment==false){
@@ -90,15 +98,4 @@ Page({
       })
     }
   },
-  getopenid(){
-    wx.cloud.callFunction({
-      name: 'getopenid',
-      complete: res => {
-        var id = res.result.openid
-        this.setData({
-          id: id
-        })
-      }
-    })
-  }
 })

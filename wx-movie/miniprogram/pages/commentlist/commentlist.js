@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    movieid: '5d248a2a7a10db99e1b99403'
   },
 
   /**

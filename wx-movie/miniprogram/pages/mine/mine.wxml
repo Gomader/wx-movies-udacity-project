@@ -10,6 +10,7 @@
 <view wx:else>
   <view class="wapper">
     <view class="topbtn" bindtap="changeinner">---{{btn}}---</view>
-    <view wx:if="{{!tomycomment}}"></view>
+    <view wx:if="{{!tomycomment}}">
+    </view>
   </view>
 </view>
