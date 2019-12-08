@@ -7,7 +7,9 @@ Page({
   data: {
     clink: '',
     info: '',
-    name:''
+    name:'',
+    id:'',
+    showaddcomment:false
   },
 
   onLoad: function (options) {
@@ -79,10 +81,32 @@ Page({
         that.setData({
           clink: res.clink,
           name: res.name,
-          info: res.info
+          info: res.info,
+          id:options.id
         })
       },
       fail: console.error
+    })
+  },
+  tocommentlist(){
+    wx.navigateTo({
+      url: '/pages/commentlist/commentlist?id=' + this.data.id
+    })
+  },
+  addcomment(){
+    if(this.data.showaddcomment==true){
+      this.setData({
+        showaddcomment:false
+      })
+    }else{
+      this.setData({
+        showaddcomment:true
+      })
+    }
+  },
+  gotoadd(){
+    wx.navigateTo({
+      url: '/pages/editor/editor?id=' + this.data.id
     })
   }
 })

@@ -39,15 +39,15 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
+					"name": "pages/movieinfo/movieinfo",
+					"pathName": "pages/movieinfo/movieinfo",
 					"query": "_id = 5d248a2a7a10db99e1b99403",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/comment/comment",
-					"pathName": "pages/comment/comment",
+					"id": 1,
+					"name": "pages/commentlist/commentlist",
+					"pathName": "pages/commentlist/commentlist",
 					"query": "_id = 5d248a2a7a10db99e1b99403",
 					"scene": null
 				}

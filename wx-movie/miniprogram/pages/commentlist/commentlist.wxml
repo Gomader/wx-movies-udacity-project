@@ -1,2 +1,3 @@
-<!--miniprogram/pages/commentlist/commentlist.wxml-->
-<text>miniprogram/pages/commentlist/commentlist.wxml</text>
+<view class='comment' wx:for='{{comments}}'>
+
+</view>

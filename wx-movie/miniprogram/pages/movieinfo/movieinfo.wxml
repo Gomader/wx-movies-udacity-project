@@ -5,10 +5,16 @@
   <text>{{info}}</text>
 </view>
 <view class='menu'>
-  <view class='comment' bindtap='tocomment'>
+  <view class='comment' bindtap='tocommentlist'>
     <image src='/images/hot-icon.png' class='icon'></image>
   查看影评</view>
-  <view class='commentlist' bindtap='tocommentlist'>
-  <image src='/images/mine-icon.png' class='icon'></image>
+  <view class='commentlist' bindtap='addcomment'>
+    <image src='/images/mine-icon.png' class='icon'></image>
   添加影评</view>
+</view>
+<view class="dark" wx:if='{{showaddcomment}}'></view>
+<view class="addcommitbutton" wx:if='{{showaddcomment}}'>
+  <button class="button" bindtap="gotoadd">文字</button>
+  <button class="button" bindtap="gotoadd">音频</button>
+  <button class="button" bindtap="addcomment">取消</button>
 </view>

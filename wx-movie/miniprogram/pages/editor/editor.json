@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "编辑影评",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark"
 }
