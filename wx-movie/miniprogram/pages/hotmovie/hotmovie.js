@@ -5,7 +5,7 @@ const db = wx.cloud.database({
 
 Page({
   data: {
-    pagenum: 1,
+    pagenum: 0,
     movies:[]
   },
   onLoad: function (options) {
@@ -16,33 +16,28 @@ Page({
     this.setData({
       pagenum: times
     })
-    this.getnewovielist()
+    this.getmovielist()
   },
-  getnewovielist(){
+  getmovielist(){
+    var that = this
     wx.showLoading({
       title: '数据正在加载中...',
     })
     var pn = this.data.pagenum*5
-    db.collection('movies').skip(pn).limit(5).get().then(result => {
-      wx.hideLoading()
-      var datas = result.data
-      const data = this.data.movies.concat(datas)
-      this.setData({
-        movies:data
-      })
-    })
-  },
-  getmovielist() {
-    wx.showLoading({
-      title: '数据正在加载中...',
-    })
-    var pn = this.data.pagenum * 5
-    db.collection('movies').limit(5).get().then(result => {
-      wx.hideLoading()
-      var datas = result.data
-      this.setData({
-        movies: datas
-      })
+    wx.cloud.callFunction({
+      name:'get',
+      data:{
+        l:0,
+        np:pn,
+      },
+      success: function (res) {
+        wx.hideLoading()
+        var datas = res.result.data
+        const data = that.data.movies.concat(datas)
+        that.setData({
+          movies: data
+        })
+      }
     })
   },
   tomovieinfo(a){

@@ -73,7 +73,8 @@ Page({
       name: 'get',
       data: {
         x: '_id',
-        y: options.id
+        y: options.id,
+        l:1
       },
       success: function (res) {
         wx.hideLoading()
@@ -104,9 +105,14 @@ Page({
       })
     }
   },
-  gotoadd(){
+  gotoaddtext(){
     wx.navigateTo({
-      url: '/pages/editor/editor?id=' + this.data.id
+      url: '/pages/editor/editor?id=' + this.data.id + '&type=t'
+    })
+  },
+  gotoaddrecord(){
+    wx.navigateTo({
+      url: '/pages/editor/editor?id=' + this.data.id + '&type=r'
     })
   }
 })

@@ -8,11 +8,11 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID
-  const userInfo = event.userInfo
   const user = await db.collection('user').where({
     openid:openid
   }).get()
   if(user.data.length==0){
+    const userInfo = event.userInfo
     await db.collection('user').add({
       data: {
         openid: openid,

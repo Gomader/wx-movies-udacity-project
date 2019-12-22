@@ -1,1 +1,51 @@
-/* miniprogram/pages/commentlist/commentlist.wxss */
+.comment{
+  height: 200rpx;
+  margin-top: 10rpx;
+  background-color: rgb(255, 255, 255);
+  padding: 50rpx 50rpx 10rpx 50rpx
+}
+.avatarpc{
+  width: 50rpx;
+  height: 50rpx;
+  border: none;
+  border-radius: 25rpx;
+  float: left
+}
+.username{
+  float: left;
+  margin-left: 50rpx;
+  font-size: 30rpx;
+  line-height: 50rpx
+}
+.textcomment{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 80%;
+  height: 30rpx;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  margin-top: 50rpx;
+  white-space: nowrap;
+}
+.userinfo{
+  height: 50rpx;
+  display: flex;
+}
+.playtime{
+  width: 50%;
+  background-color: rgba(164, 145, 209, 0.5);
+  height: 40rpx;
+  border: 1rpx solid rgb(164, 145, 209);
+  border-radius: 5rpx;
+  padding-left: 30rpx;
+  line-height: 40rpx;
+  margin-top: 50rpx
+}
+.playicon{
+  width: 40rpx;
+  height: 40rpx;
+  float: left
+}
+.playtime:hover{
+  background-color: rgba(164, 145, 209, 0.8);
+}

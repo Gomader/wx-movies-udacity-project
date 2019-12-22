@@ -39,16 +39,16 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/movieinfo/movieinfo",
-					"pathName": "pages/movieinfo/movieinfo",
-					"query": "_id = 5d248a2a7a10db99e1b99403",
+					"name": "pages/commentlist/commentlist",
+					"pathName": "pages/commentlist/commentlist",
+					"query": "id=5d248a2a7a10db99e1b99403",
 					"scene": null
 				},
 				{
-					"id": 1,
-					"name": "pages/commentlist/commentlist",
-					"pathName": "pages/commentlist/commentlist",
-					"query": "_id = 5d248a2a7a10db99e1b99403",
+					"id": 2,
+					"name": "pages/editorcheck/editorcheck",
+					"pathName": "pages/editorcheck/editorcheck",
+					"query": "id=5d248a2a7a10db99e1b99415&inner=&type=r",
 					"scene": null
 				}
 			]

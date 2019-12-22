@@ -1,18 +1,22 @@
 // miniprogram/pages/commentlist/commentlist.js
+const innerAudioContext = wx.createInnerAudioContext()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    movieid: '5d248a2a7a10db99e1b99403'
+    id: '',
+    comment:[],
+    pagenum: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.setmovieid(options)
+    this.setcomment()
   },
 
   /**
@@ -54,7 +58,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var times = this.data.pagenum + 1
+    this.setData({
+      pagenum: times
+    })
+    this.setcomment()
   },
 
   /**
@@ -62,5 +70,39 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  setmovieid:function(options){
+    this.setData({
+      id: options.id
+    })
+  },
+  setcomment:function(){
+    wx.showLoading({
+      title: '数据正在加载中...',
+    })
+    var that = this
+    var pn = this.data.pagenum * 5
+    wx.cloud.callFunction({
+      name:'get',
+      data:{
+        l:2,
+        id:that.data.id,
+        np:pn
+      },
+      success:function(res){
+        wx.hideLoading()
+        var datas = res.result.data
+        const data = that.data.comment.concat(datas)
+        that.setData({
+          comment: data
+        })
+      }
+    })
+    console.log(this.data.comment)
+  },
+  play:function(e){
+    innerAudioContext.src = e.target.dataset.inner
+    innerAudioContext.play()
+    console.log(innerAudioContext)
   }
 })

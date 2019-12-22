@@ -14,7 +14,7 @@
 </view>
 <view class="dark" wx:if='{{showaddcomment}}'></view>
 <view class="addcommitbutton" wx:if='{{showaddcomment}}'>
-  <button class="button" bindtap="gotoadd">文字</button>
-  <button class="button" bindtap="gotoadd">音频</button>
+  <button class="button" bindtap="gotoaddtext">文字</button>
+  <button class="button" bindtap="gotoaddrecord">音频</button>
   <button class="button" bindtap="addcomment">取消</button>
 </view>

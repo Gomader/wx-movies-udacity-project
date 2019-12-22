@@ -1,2 +1,17 @@
-<!--miniprogram/pages/editorcheck/editorcheck.wxml-->
-<text>miniprogram/pages/editorcheck/editorcheck.wxml</text>
+<image src='{{clink}}' class = 'pc' mode='widthFix'></image>
+<view class='bg'></view>
+<view class='name'>{{name}}</view>
+<view wx:if='{{userInfo}}' class="user">
+  <image src="{{userInfo.avatar}}" class="avatar"></image>
+  <view class="username"><text>{{userInfo.name}}的影评</text></view>
+  <view class="maohao">"</view>
+</view>
+<view class="textcheck">
+  <text wx:if='{{type==0}}'>{{text}}</text>
+  <view wx:else bindtap="play" class="playtime" bindtap="play"><image src="/images/play.png" class="playicon"></image>{{speck_time}}s</view>
+</view>
+<view class="bottom-btn">
+<button class="btn" bindtap="back">重新编辑</button>
+<button class="btn" bindtap="publish">发布影评</button>
+</view>
+

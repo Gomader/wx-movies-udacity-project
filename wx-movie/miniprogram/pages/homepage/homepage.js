@@ -1,5 +1,3 @@
-const db = wx.cloud.database()
-
 Page({
   data: {
     clink:'',
@@ -23,7 +21,8 @@ Page({
       name: 'get',
       data:{
         x: 'rand',
-        y: a
+        y: a,
+        l:1
       },
       success: function (res) {
         wx.hideLoading()
