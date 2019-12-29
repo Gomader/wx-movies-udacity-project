@@ -1,2 +1,17 @@
-<!--miniprogram/pages/comment/comment.wxml-->
-<text>miniprogram/pages/comment/comment.wxml</text>
+<image src='{{clink}}' class = 'pc' mode='widthFix'></image>
+<view class='bg'></view>
+<view class='name'>{{name}}</view>
+<view class="user">
+  <image src="{{author.avatar}}" class="avatar"></image>
+  <view class="username"><text>{{author.username}}的影评</text></view>
+  <view class="maohao">"</view>
+</view>
+<view class="textcheck">
+  <text wx:if='{{type==0}}'>{{text}}</text>
+  <view wx:else bindtap="play" class="playtime"><image src="/images/play.png" class="playicon"></image>{{speck_time}}s</view>
+</view>
+<view class="bottom-btn">
+  <button class="btn" bindtap="addfavorite" wx:if="{{favorite==false}}">收藏影评</button>
+  <button class="btn" bindtap="addfavorite" wx:if="{{favorite==true}}">取消收藏</button>
+  <button class="btn" bindtap="addcomment">写影评</button>
+</view>

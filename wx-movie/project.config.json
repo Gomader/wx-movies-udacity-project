@@ -50,6 +50,13 @@
 					"pathName": "pages/editorcheck/editorcheck",
 					"query": "id=5d248a2a7a10db99e1b99415&inner=&type=r",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mine/mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

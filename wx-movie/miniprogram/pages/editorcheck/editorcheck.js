@@ -14,7 +14,8 @@ Page({
     type: 0,
     text:'',
     userInfo:null,
-    speck_time:0
+    speck_time:0,
+    duration:0
   },
 
   /**
@@ -103,13 +104,13 @@ Page({
       this.setData({
         type: 0,
         text:options.inner,
-        speck_time:options.time
       })
     } else {
       this.setData({
         type: 1,
         text:options.inner,
-        speck_time: options.time
+        speck_time: options.time,
+        duration:options.duration
       })
     }
     var that = this
@@ -122,8 +123,9 @@ Page({
       }
     })
   },
-  play:function(){
-    innerAudioContext.src = this.data.text,
+  play(){
+    innerAudioContext.src = this.data.text//这个地方在微信端测试时和开发者工具上不一样,在开发者工具上显示VM682:1 uploadFile:fail createUploadTask:fail file not found，但是在微信端是可以使用的
+    console.log(innerAudioContext.src)
     innerAudioContext.play()
   },
   back:function(){
@@ -134,22 +136,55 @@ Page({
     wx.showLoading({
       title: '正在发布中...',
     })
-    wx.cloud.callFunction({
-      name:'publish',
-      data:{
-        id:that.data.id,
-        userInfo:that.data.userInfo,
-        inner:that.data.text,
-        type:that.data.type,
-        time:that.data.speck_time
-      },
-      success:function(res){
-        wx.hideLoading()
-        wx.navigateTo({
-          url: '/pages/commentlist/commentlist?id=' + that.data.id
-        })
-      },
-      fail: console.error
-    })
+    if(that.data.type==1){
+      var filename = Date.parse(new Date()) + '.mp3'
+      console.log(that.data.text)
+      wx.cloud.uploadFile({
+        cloudPath:filename,
+        filePath:that.data.text,
+        config:{
+          env: 'movies-udacity-f36f2'
+        },
+        success:res=>{
+          wx.cloud.callFunction({
+            name: 'publish',
+            data: {
+              operate:'publish',
+              id: that.data.id,
+              userInfo: that.data.userInfo,
+              inner: res.fileID,
+              type: that.data.type,
+              time: that.data.speck_time
+            },
+            success: function (res) {
+              wx.hideLoading()
+              wx.navigateTo({
+                url: '/pages/commentlist/commentlist?id=' + that.data.id
+              })
+            },
+            fail: console.error
+          })
+        },
+      })
+    }else{
+      wx.cloud.callFunction({
+        name: 'publish',
+        data: {
+          operate:'publish',
+          id: that.data.id,
+          userInfo: that.data.userInfo,
+          inner: that.data.text,
+          type: that.data.type,
+          time: that.data.speck_time
+        },
+        success: function (res) {
+          wx.hideLoading()
+          wx.navigateTo({
+            url: '/pages/commentlist/commentlist?id=' + that.data.id
+          })
+        },
+        fail: console.error
+      })
+    }
   }
 })

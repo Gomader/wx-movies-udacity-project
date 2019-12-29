@@ -8,31 +8,13 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const type = event.type
-  const inner = event.inner
-  const id = event.id
-  const userInfo = event.userInfo
-  const time = event.time
-  if(type==0){
-    await db.collection('comment').add({
-      data:{
-        openid:wxContext.OPENID,
-        id:id,
-        username:userInfo.name,
-        avatar:userInfo.avatar,
-        type:type,
-        inner:inner,
-        time:time
-      }
-    })
-  }else{
-    var timestamp = Date.parse(new Date());
-    timestamp = timestamp / 1000;
-    name = timestamp + wxContext.OPENID
-    const a = await cloud.uploadFile({
-      cloudPath:name+'.aac',
-      fileContent:inner,
-    })
+  const operate = event.operate
+  if(operate=='publish'){
+    const type = event.type
+    const inner = event.inner
+    const id = event.id
+    const userInfo = event.userInfo
+    const time = event.time
     await db.collection('comment').add({
       data: {
         openid: wxContext.OPENID,
@@ -40,9 +22,14 @@ exports.main = async (event, context) => {
         username: userInfo.name,
         avatar: userInfo.avatar,
         type: type,
-        inner: a.fileID,
+        inner: inner,
         time: time
       }
     })
+  }else if(operate=='delete'){
+    const id = event.id
+    await db.collection('comment').where({
+      _id:id
+    }).remove()
   }
 }

@@ -1,5 +1,9 @@
 // miniprogram/pages/mine/mine.js
 const util = require('../../utils/userinfo.js')
+const innerAudioContext = wx.createInnerAudioContext()
+const db = wx.cloud.database({
+  env: 'movies-udacity-f36f2'
+})
 Page({
 
   /**
@@ -9,7 +13,9 @@ Page({
     userInfo:null,
     tomycomment:false,
     btn:"点击查看我的影评",
-    id:null
+    id:null,
+    favorite:[],
+    mycomment:[]
   },
 
   /**
@@ -34,6 +40,7 @@ Page({
         userInfo
       })
     })
+    this.getfandm()
   },
 
   /**
@@ -97,5 +104,102 @@ Page({
         btn: "点击查看我的影评"
       })
     }
+  },
+  getfandm:function(){
+    var that = this
+    wx.showLoading({
+      title: '正在加载数据',
+    })
+    wx.cloud.callFunction({
+      name:'get',
+      data:{
+        l:4
+      },
+      success:function(res){
+        wx.hideLoading()
+        that.setData({
+          favorite:res.result.data
+        })
+      }
+    })
+    wx.cloud.callFunction({
+      name:'get',
+      data:{
+        l:5,
+      },
+      success:function(res){
+        that.setData({
+          mycomment: res.result.data
+        })
+      }
+    })
+  },
+  play: function (e) {
+    innerAudioContext.src = e.target.dataset.inner
+    innerAudioContext.play()
+    innerAudioContext.onError((res) => {
+      console.log(res)
+    })
+  },
+  tocomment: function (e) {
+    var id = e.currentTarget.dataset.id
+    wx.cloud.callFunction({
+      name:'get',
+      data:{
+        l:3,
+        x:'_id',
+        y:id
+      },
+      success:function(res){
+        if(res.result.data.length==0){
+          wx.navigateTo({
+            url: '/pages/mine/mine'
+          })
+        }else{
+          wx.navigateTo({
+            url: '/pages/comment/comment?commentid=' + id
+          })
+        }
+      }
+    })
+    
+  },
+  dcomment:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.showLoading({
+      title: '正在删除',
+    })
+    wx.cloud.callFunction({
+      name:'publish',
+      data:{
+        id: id,
+        operate:'delete'
+      },
+      success:function(res){
+        wx.hideLoading()
+        wx.navigateTo({
+          url: '/pages/mine/mine',
+        })
+      }
+    })
+  },
+  dfavorite:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.showLoading({
+      title: '正在删除',
+    })
+    wx.cloud.callFunction({
+      name:'addfavorite',
+      data:{
+        favoriteid: id,
+        type:'delete'
+      },
+      success:function(res){
+        wx.hideLoading()
+        wx.navigateTo({
+          url: '/pages/mine/mine',
+        })
+      }
+    })
   },
 })

@@ -8,7 +8,7 @@
 </view>
 <view class="textcheck">
   <text wx:if='{{type==0}}'>{{text}}</text>
-  <view wx:else bindtap="play" class="playtime" bindtap="play"><image src="/images/play.png" class="playicon"></image>{{speck_time}}s</view>
+  <view wx:else bindtap="play" class="playtime"><image src="/images/play.png" class="playicon"></image>{{speck_time}}s</view>
 </view>
 <view class="bottom-btn">
 <button class="btn" bindtap="back">重新编辑</button>

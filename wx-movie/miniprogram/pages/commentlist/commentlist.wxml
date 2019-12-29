@@ -1,6 +1,6 @@
-<view wx:if='{{comment}}'>
+<view wx:if='{{comment.length>0}}'>
   <view wx:for='{{comment}}'>
-    <view class='comment' data-id='{{item._id}}'>
+    <view class='comment' data-id='{{item._id}}' bindtap="showcomment">
       <view class="userinfo">
       <image src='{{item.avatar}}' class='avatarpc'></image>
       <text class="username">{{item.username}}</text>
@@ -9,8 +9,12 @@
       <text>{{item.inner}}</text>
     </view>
       <view wx:if='{{item.type==1}}' class="recordcomment">
-        <view bindtap="play" class="playtime" bindtap="play" data-inner='{{item.inner}}'><image src="/images/play.png" class="playicon"></image>{{item.time}}s</view>
+        <view bindtap="play" class="playtime" data-inner='{{item.inner}}'><image src="/images/play.png" class="playicon"></image>{{item.time}}s</view>
       </view>
     </view>
   </view>
+</view>
+
+<view wx:else>
+  <view class="comment">还没有人发表过评论哦~</view>
 </view>

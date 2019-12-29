@@ -43,10 +43,14 @@
 }
 .usericon{
   width: 80rpx;
-  height: 80rpx
+  height: 80rpx;
+  float: left;
+  border-radius: 40rpx;
+  border: none;
 }
 .recotext{
   padding-top: 10rpx;
   color: #bdc7af;
-  font-size: 30rpx
+  font-size: 30rpx;
+  width: auto;
 }

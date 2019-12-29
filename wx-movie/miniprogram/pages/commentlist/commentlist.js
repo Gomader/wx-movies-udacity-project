@@ -1,5 +1,8 @@
 // miniprogram/pages/commentlist/commentlist.js
 const innerAudioContext = wx.createInnerAudioContext()
+const db = wx.cloud.database({
+  env: 'movies-udacity-f36f2'
+})
 Page({
 
   /**
@@ -50,8 +53,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh() {
   },
 
   /**
@@ -98,11 +100,18 @@ Page({
         })
       }
     })
-    console.log(this.data.comment)
   },
   play:function(e){
     innerAudioContext.src = e.target.dataset.inner
     innerAudioContext.play()
-    console.log(innerAudioContext)
+    innerAudioContext.onError((res) => {
+      console.log(res)
+    })
+  },
+  showcomment:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/comment/comment?commentid=' + id
+    })
   }
 })

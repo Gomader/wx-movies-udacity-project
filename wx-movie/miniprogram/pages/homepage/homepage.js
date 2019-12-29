@@ -2,7 +2,8 @@ Page({
   data: {
     clink:'',
     name:'',
-    movieid:''
+    movieid:'',
+    recommend:null
   },
   onPullDownRefresh(){
     this.getmovies()
@@ -32,6 +33,7 @@ Page({
           name: res.name,
           movieid: res._id
         })
+        that.getrecommend(res._id)
       },
       fail: console.error
     })
@@ -54,5 +56,35 @@ Page({
     wx.navigateTo({
       url: '/pages/movieinfo/movieinfo?id=' + id
     })
-  }
+  },
+  getrecommend:function(id){
+    var that = this
+    wx.cloud.callFunction({
+      name:'get',
+      data:{
+        l:3,
+        x:'id',
+        y:id
+      },
+      success:function(res){
+        var len = res.result.data.length
+        if(len>0){
+          var a = Math.floor(Math.random()*len)
+          that.setData({
+            recommend:res.result.data[a]
+          })
+        }else{
+          that.setData({
+            recommend:null
+          })
+        }
+      }
+    })
+  },
+  tocommend:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/comment/comment?commentid=' + id,
+    })
+  },
 })

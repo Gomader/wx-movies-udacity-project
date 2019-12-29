@@ -35,5 +35,69 @@
   text-align: center;
   padding-top: 20rpx;
   padding-bottom: 10rpx;
-  color: goldenrod
+  color: goldenrod;
+  margin-bottom: 100rpx
+}
+
+.avatarpc{
+  width: 50rpx;
+  height: 50rpx;
+  border: none;
+  border-radius: 25rpx;
+  float: left
+}
+.username{
+  float: left;
+  margin-left: 50rpx;
+  font-size: 30rpx;
+  line-height: 50rpx
+}
+.textcomment{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 80%;
+  height: 30rpx;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  margin-top: 50rpx;
+  white-space: nowrap;
+}
+.userinfo{
+  height: 50rpx;
+  display: flex;
+}
+.playtime{
+  width: 50%;
+  background-color: rgba(164, 145, 209, 0.5);
+  height: 40rpx;
+  border: 1rpx solid rgb(164, 145, 209);
+  border-radius: 5rpx;
+  padding-left: 30rpx;
+  line-height: 40rpx;
+  margin-top: 50rpx
+}
+.playicon{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  z-index: 5
+}
+.playtime:hover{
+  background-color: rgba(164, 145, 209, 0.8);
+}
+.comments{
+  height: 200rpx;
+  margin-top: 10rpx;
+  background-color: rgb(241, 241, 241);
+  padding: 50rpx 50rpx 10rpx 50rpx;
+  z-index: 0
+}
+.d_btn{
+  background-color: #000000;
+  color: #ffffff;
+  width: 100rpx;
+  height: 50rpx;
+  font-size: 20rpx;
+  float: right;
+  z-index: 6
 }

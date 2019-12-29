@@ -2,8 +2,14 @@
 </image>
 <text class='name'>{{name}}</text>
 <view class='reco'>
-  <image src='/images/hot-icon.png' class='usericon'></image>
-  <view class='recotext'>我给你推荐了一部电影</view>
+  <view wx:if='{{recommend==null}}' bindtap='tomovieinfo' data-id="{{movieid}}">
+    <image src='/images/hot-icon.png' class='usericon'></image>
+    <view class='recotext'>没有人看过这部电影</view>
+  </view>
+  <view wx:else bindtap="tocommend" data-id="{{recommend._id}}">
+    <image src='{{recommend.avatar}}' class='usericon'></image>
+    <view class='recotext'>{{recommend.username}}给你推荐了一部电影</view>
+  </view>
 </view>
 <view class='menu'>
   <view class='hot' bindtap='tohotmovie'>

@@ -1,1 +1,92 @@
-/* miniprogram/pages/comment/comment.wxss */
+.pc{
+  width: 216rpx;
+  padding-left: 267rpx;
+  padding-right: 267rpx;
+  padding-top: 30rpx
+}
+.bg{
+  width: 700rpx;
+  height: 1700rpx;
+  background-color: #ffffff;
+  left: 25rpx;
+  position: fixed;
+  top: 70rpx;
+  padding-bottom: 70rpx;
+  z-index: -1;
+}
+.name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: bolder;
+  color: #000000
+}
+.textcheck{
+  width:50%;
+  min-height:200rpx;
+  margin-left:35%;
+  margin-right: 10%;
+  margin-top:50rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+.btn{
+  border: 1rpx solid #000000;
+  width: 40%;
+  display: inline-block;
+}
+.bottom-btn{
+  text-align: center;
+  position: fixed;
+  bottom: 10rpx;
+  width: 100%
+}
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: none;
+  margin-right: 20rpx;
+  float: left
+}
+.user{
+  width: 100%;
+  min-height: 100rpx;
+  padding-left: 10%;
+  padding-top: 50rpx;
+  position: relative
+}
+.username{
+  line-height: 100rpx;
+  height: 100rpx;
+  float: left;
+  font-size: 30rpx;
+  font-weight: bolder
+}
+.maohao{
+  position: absolute;
+  top:200rpx;
+  font-size: 50rpx;
+  margin-left: 50rpx;
+  font-weight: bolder;
+}
+.playtime{
+  background-color: rgba(164, 145, 209, 0.5);
+  height: 60rpx;
+  border: 1rpx solid rgb(164, 145, 209);
+  border-radius: 5rpx;
+  padding-left: 30rpx;
+  line-height: 60rpx;
+
+}
+.playicon{
+  width: 60rpx;
+  height: 60rpx;
+  float: left
+}
+.playtime:hover{
+  background-color: rgba(164, 145, 209, 0.8);
+}

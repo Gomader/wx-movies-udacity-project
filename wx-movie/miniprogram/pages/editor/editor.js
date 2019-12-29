@@ -14,7 +14,8 @@ Page({
     record:' ',
     type:0,
     userInfo:null,
-    speck_time:0
+    speck_time:0,
+    duration:0
   },
 
   /**
@@ -102,7 +103,7 @@ Page({
           clink: res.clink,
           name: res.name,
           info: res.info,
-          id: options.id
+          id: options.id,
         })
       },
       fail: console.error
@@ -112,9 +113,9 @@ Page({
     const options = {
       duration: 60000,
       sampleRate: 8000,
-      numberOfChannels: 1,
+      numberOfChannels: 2,
       encodeBitRate: 16000,
-      format: 'aac'
+      format: 'mp3'
     }
     recorderManager.start(options)
     var that = this
@@ -134,20 +135,22 @@ Page({
     recorderManager.stop()
     clearInterval(this.data.setInter);
     recorderManager.onStop((res) => {
+      console.log(res)
       this.setData({
         record:res.tempFilePath,
+        duration:res.duration
       })
     })
   },
   innertext:function(e){
     var inner = e.detail.value.inner
     wx.navigateTo({
-      url: '/pages/editorcheck/editorcheck?id=' + this.data.id + '&inner=' + inner + '&type=t&time=' + this.data.speck_time
+      url: '/pages/editorcheck/editorcheck?id=' + this.data.id + '&inner=' + inner + '&type=t'
     })
   },
   innerrecord: function (e) {
     wx.navigateTo({
-      url: '/pages/editorcheck/editorcheck?id=' + this.data.id + '&inner=' + this.data.record + '&type=r&time=' + this.data.speck_time
+      url: '/pages/editorcheck/editorcheck?id=' + this.data.id + '&inner=' + this.data.record + '&type=r&time=' + this.data.speck_time + '&duration=' + this.data.duration
     })
   }
 })

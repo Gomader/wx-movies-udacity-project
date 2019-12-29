@@ -2,7 +2,8 @@
   height: 200rpx;
   margin-top: 10rpx;
   background-color: rgb(255, 255, 255);
-  padding: 50rpx 50rpx 10rpx 50rpx
+  padding: 50rpx 50rpx 10rpx 50rpx;
+  z-index: 0
 }
 .avatarpc{
   width: 50rpx;
@@ -44,7 +45,8 @@
 .playicon{
   width: 40rpx;
   height: 40rpx;
-  float: left
+  float: left;
+  z-index: 5
 }
 .playtime:hover{
   background-color: rgba(164, 145, 209, 0.8);
