@@ -113,5 +113,10 @@ Page({
     wx.navigateTo({
       url: '/pages/comment/comment?commentid=' + id
     })
+  },
+  backtohome:function(){
+    wx.navigateTo({
+      url: '/pages/homepage/homepage',
+    })
   }
 })

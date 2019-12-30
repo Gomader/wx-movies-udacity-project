@@ -79,6 +79,9 @@ Page({
   },
   onTapLogin(event) {
     var that = this
+    if(event.detail.userInfo.avatar==""){
+      event.detail.userInfo.avatar = "/images/test.jpg"
+    }
     wx.cloud.callFunction({
       name:'user',
       data:{
@@ -202,4 +205,9 @@ Page({
       }
     })
   },
+  backtohome:function(){
+    wx.navigateTo({
+      url: '/pages/homepage/homepage',
+    })
+  }
 })

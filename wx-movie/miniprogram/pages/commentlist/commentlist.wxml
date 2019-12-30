@@ -18,3 +18,5 @@
 <view wx:else>
   <view class="comment">还没有人发表过评论哦~</view>
 </view>
+
+<button class="backtohome" bindtap="backtohome">回到首页</button>
