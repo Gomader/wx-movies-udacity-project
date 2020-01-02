@@ -1,17 +1,22 @@
-<image src='{{clink}}' class = 'pc' mode='widthFix'></image>
-<view class='bg'></view>
-<view class='name'>{{name}}</view>
-<view class="inputs" wx:if='{{type==0}}'>
-  <form bindsubmit="innertext">
-    <textarea auto-height placeholder="输入你的影评内容..." style="margin:auto;text-align:left;margin-top:50rpx" name="inner"></textarea>
-    <button form-type="submit" style="position:fixed;bottom:0;width:100%">完成</button>
-  </form>
+<view class="wapper" wx:if="{{!userInfo}}">
+  <login bindonLogin="onTapLogin"></login>
 </view>
-<view class="inputs" wx:else>
-  <image src="/images/mac.png" class="macpc"></image>
-  <view>00:<label wx:if="{{speck_time>9}}">{{speck_time}}</label><label wx:if="{{speck_time<10}}">0{{speck_time}}</label></view>
-  <form bindsubmit="innerrecord">
-    <button form-type="submit" style="position:fixed;bottom:0;width:100%">完成</button>
-  </form>
-  <button bindlongtap="start" bindtouchend="end" class="record">开始录音</button>
+<view wx:else>
+  <image src='{{clink}}' class = 'pc' mode='widthFix'></image>
+  <view class='bg'></view>
+  <view class='name'>{{name}}</view>
+  <view class="inputs" wx:if='{{type==0}}'>
+    <form bindsubmit="innertext">
+      <textarea auto-height placeholder="输入你的影评内容..." style="margin:auto;text-align:left;margin-top:50rpx" name="inner"></textarea>
+      <button form-type="submit" style="position:fixed;bottom:0;width:100%">完成</button>
+    </form>
+  </view>
+  <view class="inputs" wx:else>
+    <image src="/images/mac.png" class="macpc"></image>
+    <view>00:<label wx:if="{{speck_time>9}}">{{speck_time}}</label><label wx:if="{{speck_time<10}}">0{{speck_time}}</label></view>
+    <form bindsubmit="innerrecord">
+      <button form-type="submit" style="position:fixed;bottom:0;width:100%">完成</button>
+    </form>
+    <button bindlongtap="start" bindtouchend="end" class="record">开始录音</button>
+  </view>
 </view>

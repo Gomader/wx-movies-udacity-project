@@ -104,7 +104,6 @@
 .backtohome{
   position: fixed;
   bottom: 0;
-  background-color: white;
   color: black;
   width: 100%;
 }

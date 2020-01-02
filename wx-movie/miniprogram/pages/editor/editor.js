@@ -1,6 +1,6 @@
 // miniprogram/pages/editor/editor.js
 const recorderManager = wx.getRecorderManager()
-
+const util = require('../../utils/userinfo.js')
 Page({
 
   /**
@@ -37,6 +37,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    util.getUserInfo().then(userInfo => {
+      this.setData({
+        userInfo
+      })
+    })
   },
 
   /**
@@ -152,5 +157,23 @@ Page({
     wx.navigateTo({
       url: '/pages/editorcheck/editorcheck?id=' + this.data.id + '&inner=' + this.data.record + '&type=r&time=' + this.data.speck_time + '&duration=' + this.data.duration
     })
-  }
+  },
+  onTapLogin(event) {
+    var that = this
+    if(event.detail.userInfo.avatar==""){
+      event.detail.userInfo.avatar = "/images/test.jpg"
+    }
+    wx.cloud.callFunction({
+      name:'user',
+      data:{
+        userInfo:event.detail.userInfo
+      },
+      success: function (res){
+        console.log(res)
+        that.setData({
+          userInfo:res.result
+        })
+      }
+    })
+  },
 })

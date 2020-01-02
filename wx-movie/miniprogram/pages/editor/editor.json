@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "login":"/components/login/login"
+  },
   "navigationBarTitleText": "编辑影评",
   "enablePullDownRefresh": false,
   "backgroundTextStyle": "dark"

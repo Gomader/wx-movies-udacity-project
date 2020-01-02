@@ -1,0 +1,4 @@
+<view class="user-head">
+    <image src="/images/test.jpg" class="head-pc"></image>
+</view>
+<button class="btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">使用微信登陆</button>
