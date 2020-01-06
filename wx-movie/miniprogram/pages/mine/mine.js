@@ -79,8 +79,9 @@ Page({
   },
   onTapLogin(event) {
     var that = this
-    if(event.detail.userInfo.avatar==""){
-      event.detail.userInfo.avatar = "/images/test.jpg"
+    console.log(event.detail.userInfo)
+    if(event.detail.userInfo.avatarUrl==""){
+      event.detail.userInfo.avatarUrl = "/images/test.jpg"
     }
     wx.cloud.callFunction({
       name:'user',

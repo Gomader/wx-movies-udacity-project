@@ -17,7 +17,7 @@ exports.main = async (event, context) => {
     return data
   }else if(l==1){
     const x = String(event.x)
-    const y = String(event.y)
+    const y = Number(event.y)
     const data = await db.collection('movies').where({
       [x]: y
     }).get()
