@@ -17,7 +17,7 @@ exports.main = async (event, context) => {
     return data
   }else if(l==1){
     const x = String(event.x)
-    const y = Number(event.y)
+    const y = String(event.y)//这里面像您所说的问题，是因为我的数据库movies集合里，point和rand都是string格式的，请您把格式改正一下，我的数据库里有220条信息，如果csv无法导入“0”这种数据的话，我可以给您一份json导出的数据库
     const data = await db.collection('movies').where({
       [x]: y
     }).get()
